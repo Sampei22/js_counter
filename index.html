@@ -8,14 +8,25 @@
 <body>
     <script>
         const body = document.querySelector("body")
+        
         const titolo = document.createElement("h1")
         titolo.textContent = "Contatore JavaScript"
-        body.appendChild(titolo)
+        document.querySelector("body").appendChild(titolo)
         
         const btnMeno = document.createElement("button")
-        const btnPiu = document.createElement("button")
         btnMeno.textContent = "-"
+
+        const btnPiu = document.createElement("button")
         btnPiu.textContent = "+"
+
+        const btnAzzera = document.createElement("button")
+        btnAzzera.textContent = "Azzera contatore"
+
+        const btnSalva = document.createElement("button")
+        btnSalva.textContent = "Salva contatore"
+        
+        const btnVisual = document.createElement("button")
+        btnVisual.textContent = "Visualizza contatori salvati"
 
         const counter = document.createElement("text")
         counter.textContent = 0
@@ -23,11 +34,48 @@
         body.appendChild(btnMeno)
         body.appendChild(counter)
         body.appendChild(btnPiu)
+        body.appendChild(btnAzzera)
+        body.appendChild(btnSalva)
+        body.appendChild(btnVisual)
 
-        document.addEventListener("click", function(e){
-            console.log(e)
+        
+        btnMeno.addEventListener("click", function(){
+            counter.textContent = decrementa(counter)
         })
 
+        btnPiu.addEventListener("click", function(){
+            counter.textContent = aumenta(counter)
+        })
+
+        btnAzzera.addEventListener("click", function(){
+            counter.textContent = azzera(counter)
+        })
+
+        function aumenta (num){      
+            return (parseFloat(num.textContent)+1);
+        }
+
+        function decrementa (num){      
+            return (parseFloat(num.textContent)-1);
+        }
+
+        function salva (num){      
+            return (parseFloat(num.textContent)-1);
+        }
+
+        function azzera (num){      
+            return num.textContent = 0;
+        }
+        /*creare array con indice per salvare e visulaizzare,
+            aggiungere anche una funzione per cancellare i salvataggi,
+            sia tutti che l ultimo
+        function salva (num){      
+            
+        }
+
+        function visualizza (num){      
+            return num.textContent = 0;
+        }*/
     </script>
 </body>
 </html>
