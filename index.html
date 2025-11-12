@@ -31,6 +31,9 @@
         const counter = document.createElement("text")
         counter.textContent = 0
 
+        arraySalvataggi = new Array()
+        let i = 0
+
         body.appendChild(btnMeno)
         body.appendChild(counter)
         body.appendChild(btnPiu)
@@ -51,6 +54,14 @@
             counter.textContent = azzera(counter)
         })
 
+        btnSalva.addEventListener("click", function(){
+            i = salvaCont(counter.textContent, i, arraySalvataggi)
+        })
+
+        btnVisual.addEventListener("click", function(){
+            visualArray(arraySalvataggi)
+        })
+
         function aumenta (num){      
             return (parseFloat(num.textContent)+1);
         }
@@ -59,23 +70,25 @@
             return (parseFloat(num.textContent)-1);
         }
 
-        function salva (num){      
-            return (parseFloat(num.textContent)-1);
-        }
-
         function azzera (num){      
             return num.textContent = 0;
         }
-        /*creare array con indice per salvare e visulaizzare,
-            aggiungere anche una funzione per cancellare i salvataggi,
-            sia tutti che l ultimo
-        function salva (num){      
-            
+
+        function salvaCont (num, indice, array){
+            array[indice] = num;
+            indice++;
+            return indice  
         }
 
-        function visualizza (num){      
-            return num.textContent = 0;
-        }*/
+        function visualArray (array){
+            for(i = 0;  i< array.length; i++){
+                console.log(array[i])
+                /*creare text con contatori salvati*/
+                /*creare btn svuota salvataggi*/
+                /*creare btn cancella ultimo salvataggio*/
+
+            }
+        }
     </script>
 </body>
 </html>
