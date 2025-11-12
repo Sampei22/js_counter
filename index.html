@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto JavaScript di Enrico Sanchini</title>
+</head>
+<body>
+    <script>
+        const body = document.querySelector("body")
+        const titolo = document.createElement("h1")
+        titolo.textContent = "Contatore JavaScript"
+        body.appendChild(titolo)
+        
+        const btnMeno = document.createElement("button")
+        const btnPiu = document.createElement("button")
+        btnMeno.textContent = "-"
+        btnPiu.textContent = "+"
+
+        const counter = document.createElement("text")
+        counter.textContent = 0
+
+        body.appendChild(btnMeno)
+        body.appendChild(counter)
+        body.appendChild(btnPiu)
+
+        document.addEventListener("click", function(e){
+            console.log(e)
+        })
+
+    </script>
+</body>
+</html>
