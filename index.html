@@ -8,38 +8,54 @@
 <body>
     <script>
         const body = document.querySelector("body")
+        body.style.cssText = "background: linear-gradient(to right, red,green);"
         
+        const style = document.createElement("style")
+        style.textContent = ".counterGrid{display:grid; justify-content:center; align-content:center; min-height:100vh; grid-template-columns: repeat(3,200px); grid-template-rows: minmax(120px,auto) repeat (2,100px);} .buttonStyle{font-size:2rem; border:1px solid white; background-color:rgba(255,255,255,.75);}"
+        body.appendChild(style)
+        
+        const divGrid = document.createElement("div")
+        divGrid.setAttribute("class", "counterGrid")
+        body.appendChild(divGrid)
+
         const titolo = document.createElement("h1")
+        titolo.style.cssText = "grid-column:1/-1; text-align:center;"
         titolo.textContent = "Contatore JavaScript"
-        document.querySelector("body").appendChild(titolo)
+        divGrid.appendChild(titolo)
         
         const btnMeno = document.createElement("button")
+        btnMeno.setAttribute("class","buttonStyle")
         btnMeno.textContent = "-"
 
         const btnPiu = document.createElement("button")
+        btnPiu.setAttribute("class","buttonStyle")
         btnPiu.textContent = "+"
 
         const btnAzzera = document.createElement("button")
+        btnAzzera.setAttribute("class","buttonStyle")
         btnAzzera.textContent = "Azzera contatore"
 
         const btnSalva = document.createElement("button")
+        btnSalva.setAttribute("class","buttonStyle")
         btnSalva.textContent = "Salva contatore"
         
         const btnVisual = document.createElement("button")
+        btnVisual.setAttribute("class","buttonStyle")
         btnVisual.textContent = "Visualizza contatori salvati"
 
         const counter = document.createElement("text")
+        counter.style.cssText="text-align:center;"
         counter.textContent = 0
 
         arraySalvataggi = new Array()
         let i = 0
 
-        body.appendChild(btnMeno)
-        body.appendChild(counter)
-        body.appendChild(btnPiu)
-        body.appendChild(btnAzzera)
-        body.appendChild(btnSalva)
-        body.appendChild(btnVisual)
+        divGrid.appendChild(btnMeno)
+        divGrid.appendChild(counter)
+        divGrid.appendChild(btnPiu)
+        divGrid.appendChild(btnAzzera)
+        divGrid.appendChild(btnSalva)
+        divGrid.appendChild(btnVisual)
 
         
         btnMeno.addEventListener("click", function(){
