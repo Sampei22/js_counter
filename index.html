@@ -9,9 +9,13 @@
     <script>
         const body = document.querySelector("body")
         body.style.cssText = "background: linear-gradient(to right, white,green);"
+
+        /*const menu = document.createElement("div")
+        menu.textContent = "prova"
+        body.appendChild(menu)*/
         
         const style = document.createElement("style")
-        style.textContent = ".counterGrid{display:grid; justify-content:center; align-content:center; min-height:100vh; grid-template-columns: repeat(3,200px); grid-template-rows: minmax(120px,auto) repeat (2,100px);} .buttonStyle{font-size:2rem; border:1px solid white; background-color:rgba(255,255,255,.75);}"
+        style.textContent = ".span3{grid-column: span 3;} .counterGrid{display:grid; justify-content:center; align-content:center; min-height:100vh; grid-template-columns: repeat(3,200px); grid-template-rows: minmax(120px,auto) repeat (2,100px);} .counterGrid > button:hover{background-color: rgba(255,255,255,0.9);}.buttonStyle{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:2rem; border:1px solid white; background-color:rgba(255,255,255,.75);}"
         body.appendChild(style)
         
         const divGrid = document.createElement("div")
@@ -19,18 +23,16 @@
         body.appendChild(divGrid)
 
         const titolo = document.createElement("h1")
-        titolo.style.cssText = "grid-column:1/-1; text-align:center;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
+        titolo.style.cssText = "grid-column:1/-1; text-align:center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
         titolo.textContent = "Contatore JavaScript"
         divGrid.appendChild(titolo)
         
         const btnMeno = document.createElement("button")
         btnMeno.setAttribute("class","buttonStyle")
-        btnMeno.textContent = "-"
-        divGrid.appendChild(btnMeno)
-        
+        btnMeno.textContent = "-"        
 
         const counter = document.createElement("text")
-        counter.style.cssText="text-align:center;"
+        counter.style.cssText="text-align:center; font-size:2rem;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
         counter.textContent = 0
 
         const btnPiu = document.createElement("button")
@@ -38,39 +40,36 @@
         btnPiu.textContent = "+"
 
         const btnAzzera = document.createElement("button")
-        btnAzzera.setAttribute("class","buttonStyle")
+        btnAzzera.classList.add("buttonStyle","span3")
         btnAzzera.textContent = "Azzera contatore"
 
         const btnSalva = document.createElement("button")
-        btnSalva.setAttribute("class","buttonStyle")
+        btnSalva.classList.add("buttonStyle","span3")
         btnSalva.textContent = "Salva contatore"
 
         const btnCanc = document.createElement("button")
-        btnCanc.setAttribute("class","buttonStyle")
+        btnCanc.classList.add("buttonStyle","span3")
         btnCanc.textContent = "Cancella ultimo contatore salvato"
 
         const btnSvuota = document.createElement("button")
-        btnSvuota.setAttribute("class","buttonStyle")
-        btnSvuota.textContent = "Svuota i contatori salvati"    
-
-        const btnVisualizza = document.createElement("button")
-        btnVisualizza.setAttribute("class","buttonStyle")
-        btnVisualizza.textContent = "Visualizza i contatori salvati"        
+        btnSvuota.classList.add("buttonStyle","span3")
+        btnSvuota.textContent = "Svuota i contatori salvati"         
 
         arraySalvataggi = new Array()
         let i = 0
-
-        let nuovoContatore = document.createElement("li")
         
+        divGrid.appendChild(btnMeno)
         divGrid.appendChild(counter)
         divGrid.appendChild(btnPiu)
         divGrid.appendChild(btnAzzera)
         divGrid.appendChild(btnSalva)
         divGrid.appendChild(btnCanc)
         divGrid.appendChild(btnSvuota)
-        divGrid.appendChild(btnVisualizza)
 
         const listaSalvataggi = document.createElement("ul")
+        listaSalvataggi.classList.add("span3")
+        listaSalvataggi.style.cssText="font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; list-style-type:none; text-align:center;"
+        /* sistemare */
         listaSalvataggi.textContent="I tuoi contatori salvati:"
         
         btnMeno.addEventListener("click", function(){
@@ -90,7 +89,13 @@
         })
 
         btnCanc.addEventListener("click", function(){
+            if (i==0) return
+            if (i==1){
+                divGrid.removeChild(listaSalvataggi)
+            }
             arraySalvataggi.pop()
+            listaSalvataggi.removeChild(listaSalvataggi.lastChild)
+            i--
         })
 
         btnSvuota.addEventListener("click", function(){
@@ -114,15 +119,26 @@
         }
 
         function salvaCont (num, indice, array){
+            if(indice == 0){
+                divGrid.appendChild(listaSalvataggi)
+            }
+
             array[indice] = num;
             indice++;
-            return indice  
+
+            let nuovoContatore = document.createElement("li")
+            nuovoContatore.textContent = "Contatore " + indice + " : " + num
+            listaSalvataggi.appendChild(nuovoContatore)
+
+            return indice 
         }
 
         function svuotaArray (array){
             for (let i = 0; i<array.length;){
                 array.pop()
+                listaSalvataggi.removeChild(listaSalvataggi.lastChild)
             }
+            divGrid.removeChild(listaSalvataggi)
             return 0
         }
 
