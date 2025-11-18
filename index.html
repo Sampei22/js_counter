@@ -8,7 +8,7 @@
 <body>
     <script>
         const body = document.querySelector("body")
-        body.style.cssText = "background: linear-gradient(to right, red,green);"
+        body.style.cssText = "background: linear-gradient(to right, white,green);"
         
         const style = document.createElement("style")
         style.textContent = ".counterGrid{display:grid; justify-content:center; align-content:center; min-height:100vh; grid-template-columns: repeat(3,200px); grid-template-rows: minmax(120px,auto) repeat (2,100px);} .buttonStyle{font-size:2rem; border:1px solid white; background-color:rgba(255,255,255,.75);}"
@@ -19,13 +19,19 @@
         body.appendChild(divGrid)
 
         const titolo = document.createElement("h1")
-        titolo.style.cssText = "grid-column:1/-1; text-align:center;"
+        titolo.style.cssText = "grid-column:1/-1; text-align:center;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
         titolo.textContent = "Contatore JavaScript"
         divGrid.appendChild(titolo)
         
         const btnMeno = document.createElement("button")
         btnMeno.setAttribute("class","buttonStyle")
         btnMeno.textContent = "-"
+        divGrid.appendChild(btnMeno)
+        
+
+        const counter = document.createElement("text")
+        counter.style.cssText="text-align:center;"
+        counter.textContent = 0
 
         const btnPiu = document.createElement("button")
         btnPiu.setAttribute("class","buttonStyle")
@@ -38,25 +44,34 @@
         const btnSalva = document.createElement("button")
         btnSalva.setAttribute("class","buttonStyle")
         btnSalva.textContent = "Salva contatore"
-        
-        const btnVisual = document.createElement("button")
-        btnVisual.setAttribute("class","buttonStyle")
-        btnVisual.textContent = "Visualizza contatori salvati"
 
-        const counter = document.createElement("text")
-        counter.style.cssText="text-align:center;"
-        counter.textContent = 0
+        const btnCanc = document.createElement("button")
+        btnCanc.setAttribute("class","buttonStyle")
+        btnCanc.textContent = "Cancella ultimo contatore salvato"
+
+        const btnSvuota = document.createElement("button")
+        btnSvuota.setAttribute("class","buttonStyle")
+        btnSvuota.textContent = "Svuota i contatori salvati"    
+
+        const btnVisualizza = document.createElement("button")
+        btnVisualizza.setAttribute("class","buttonStyle")
+        btnVisualizza.textContent = "Visualizza i contatori salvati"        
 
         arraySalvataggi = new Array()
         let i = 0
 
-        divGrid.appendChild(btnMeno)
+        let nuovoContatore = document.createElement("li")
+        
         divGrid.appendChild(counter)
         divGrid.appendChild(btnPiu)
         divGrid.appendChild(btnAzzera)
         divGrid.appendChild(btnSalva)
-        divGrid.appendChild(btnVisual)
+        divGrid.appendChild(btnCanc)
+        divGrid.appendChild(btnSvuota)
+        divGrid.appendChild(btnVisualizza)
 
+        const listaSalvataggi = document.createElement("ul")
+        listaSalvataggi.textContent="I tuoi contatori salvati:"
         
         btnMeno.addEventListener("click", function(){
             counter.textContent = decrementa(counter)
@@ -71,11 +86,19 @@
         })
 
         btnSalva.addEventListener("click", function(){
-            i = salvaCont(counter.textContent, i, arraySalvataggi)
+            i = salvaCont(counter.textContent, i, arraySalvataggi)      
         })
 
-        btnVisual.addEventListener("click", function(){
-            visualArray(arraySalvataggi)
+        btnCanc.addEventListener("click", function(){
+            arraySalvataggi.pop()
+        })
+
+        btnSvuota.addEventListener("click", function(){
+            i = svuotaArray(arraySalvataggi)
+        })
+
+        btnVisualizza.addEventListener("click", function(){
+            visualizzaArray(arraySalvataggi)
         })
 
         function aumenta (num){      
@@ -96,15 +119,19 @@
             return indice  
         }
 
-        function visualArray (array){
-            for(i = 0;  i< array.length; i++){
-                console.log(array[i])
-                /*creare text con contatori salvati*/
-                /*creare btn svuota salvataggi*/
-                /*creare btn cancella ultimo salvataggio*/
+        function svuotaArray (array){
+            for (let i = 0; i<array.length;){
+                array.pop()
+            }
+            return 0
+        }
 
+        function visualizzaArray (array){
+            for (let i = 0; i<array.length;i++){
+                console.log(array[i])
             }
         }
+
     </script>
 </body>
 </html>
