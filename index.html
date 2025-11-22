@@ -9,15 +9,22 @@
     <script>
         const body = document.querySelector("body")
         body.style.cssText = "background: linear-gradient(to right, white,green);"
-
-        /*const menu = document.createElement("div")
-        menu.textContent = "prova"
-        body.appendChild(menu)*/
         
         const style = document.createElement("style")
-        style.textContent = ".span3{grid-column: span 3;} .counterGrid{display:grid; justify-content:center; align-content:center; min-height:100vh; grid-template-columns: repeat(3,200px); grid-template-rows: minmax(120px,auto) repeat (2,100px);} .counterGrid > button:hover{background-color: rgba(255,255,255,0.9);}.buttonStyle{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:2rem; border:1px solid white; background-color:rgba(255,255,255,.75);}"
+        style.textContent = ".span3{grid-column: span 3;} .counterGrid{display:grid; justify-content:center; align-content:center; min-height:100vh; grid-template-columns: repeat(3,200px); grid-template-rows: minmax(120px,auto);} .counterGrid > button:hover{background-color: rgba(255,255,255,0.9);} .buttonStyle{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:2rem; border:1px solid white; background-color:rgba(255,255,255,.75);}"
         body.appendChild(style)
+
+        const btnSfondo = document.createElement("div")
+        btnSfondo.textContent = "Cambia lo sfondo"
+        btnSfondo.style.cssText="position:fixed; top:10px; left:10px; font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif; background-color:rgba(255,255,255,.75); padding:10px; border:1px solid white; cursor:pointer;"
+        body.appendChild(btnSfondo)
         
+        btnSfondo.addEventListener("click", function(){
+            const coloriSfondo = ["linear-gradient(to right, white,green)","linear-gradient(to right, white,blue)","linear-gradient(to right, white,red)","linear-gradient(to right, white,purple)","linear-gradient(to right, white,orange)"]
+            const indiceColore = Math.floor(Math.random() * coloriSfondo.length)
+            body.style.background = coloriSfondo[indiceColore]
+        })
+
         const divGrid = document.createElement("div")
         divGrid.setAttribute("class", "counterGrid")
         body.appendChild(divGrid)
@@ -31,7 +38,7 @@
         btnMeno.setAttribute("class","buttonStyle")
         btnMeno.textContent = "-"        
 
-        const counter = document.createElement("text")
+        const counter = document.createElement("span")
         counter.style.cssText="text-align:center; font-size:2rem;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"
         counter.textContent = 0
 
@@ -53,9 +60,9 @@
 
         const btnSvuota = document.createElement("button")
         btnSvuota.classList.add("buttonStyle","span3")
-        btnSvuota.textContent = "Svuota i contatori salvati"         
+        btnSvuota.textContent = "Svuota i contatori salvati"          
 
-        arraySalvataggi = new Array()
+        let arraySalvataggi = new Array()
         let i = 0
         
         divGrid.appendChild(btnMeno)
@@ -102,10 +109,6 @@
             i = svuotaArray(arraySalvataggi)
         })
 
-        btnVisualizza.addEventListener("click", function(){
-            visualizzaArray(arraySalvataggi)
-        })
-
         function aumenta (num){      
             return (parseFloat(num.textContent)+1);
         }
@@ -134,11 +137,13 @@
         }
 
         function svuotaArray (array){
-            for (let i = 0; i<array.length;){
+            while (array.length > 0) {
                 array.pop()
                 listaSalvataggi.removeChild(listaSalvataggi.lastChild)
             }
-            divGrid.removeChild(listaSalvataggi)
+            if (array.length == 0) {
+                divGrid.removeChild(listaSalvataggi)
+            }
             return 0
         }
 
