@@ -126,7 +126,7 @@ Once you've opened the index.html file in your browser, use the buttons in the i
 
 ## Licenza
 
-Distributed under the Unlicense license. For more information, see the file. [LICENSE_en.txt]().
+Distributed under the Unlicense license. For more information, see the file. [LICENSE_en.txt](https://github.com/Sampei22/js_counter/blob/main/LICENSE_en.txt).
 
 
 
