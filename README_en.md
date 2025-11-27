@@ -74,7 +74,7 @@ We see that an array containing five different colors has been created, which th
 
 👉 [Project demo link](https://sampei22.github.io/js_counter/)
 
-## Installazione
+## Installation
 
 ```
 git clone https://github.com/Sampei22/js_counter.git
