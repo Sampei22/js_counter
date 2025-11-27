@@ -37,8 +37,9 @@ Il contatore aumenta o diminuisce il valore visualizzato. Oltre ai due pulsanti 
 ## Esempio di codice
 
 ```JavaScript
-const coloriSfondo = ["linear-gradient(to top, white,green)","linear-gradient(to top, white,blue)","linear-gradient(to top, white,red)",
-                        "linear-gradient(to top, white,purple)","linear-gradient(to top, white,orange)"]
+const coloriSfondo = ["linear-gradient(to top, white,green)","linear-gradient(to top, white,blue)",
+                      "linear-gradient(to top, white,red)","linear-gradient(to top, white,purple)",
+                      "linear-gradient(to top, white,orange)"]
 
 let sfondoPrecedente = 0
 
