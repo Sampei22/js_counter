@@ -3,7 +3,7 @@
 [![github](https://img.shields.io/badge/github-repo-blue?logo=github&style=plastic)](https://github.com/Sampei22/js_counter)
 [![release](https://img.shields.io/badge/release-1.0-blue?style=plastic)]()
 [![stars](https://img.shields.io/github/stars/Sampei22/js_counter?style=plastic&color=yellow)]()
-[![license](https://img.shields.io/badge/license-unlicense-green?style=plastic)]()
+[![license](https://img.shields.io/badge/license-unlicense-green?style=plastic)](https://github.com/Sampei22/js_counter/blob/main/LICENZA.txt)
 [![language](https://img.shields.io/badge/language-JavaScript-orange?style=plastic)]()
 
 ## Descrizione del progetto
@@ -34,7 +34,7 @@ Il contatore aumenta o diminuisce il valore visualizzato. Oltre ai due pulsanti 
 
 **Cambia sfondo** - nell'angolo in alto a sinistra della schermata, troviamo un bottone che se cliccato cambia il colore dello sfondo.
 
-## Esempi di codice
+## Esempio di codice
 
 ```JavaScript
 const coloriSfondo = ["linear-gradient(to top, white,green)","linear-gradient(to top, white,blue)","linear-gradient(to top, white,red)","linear-gradient(to top, white,purple)","linear-gradient(to top, white,orange)"]
@@ -53,7 +53,7 @@ btnSfondo.addEventListener("click", ()=>{
 })
 ```
 
-Vediamo che è stato creato un array che contiene cinque colori differenti, tramite la funzione `Math.random()` genera un numero da 0 a 4 che utilizzeremo come indice dell'array per assegnare un nuovo valore allo sfondo. Tramite il ciclo `do while` e le due variabili `sfondoPrecedente` e `nuovoSfondo` controlliamo che il colore non si ripeta.
+Vediamo che è stato creato un array che contiene cinque colori differenti, generiamo un numero intero compreso tra 0 e 4 grazie a Math.floor(), che utilizzeremo come indice dell'array per assegnare un nuovo valore allo sfondo. Tramite il ciclo `do while` e le due variabili `sfondoPrecedente` e `nuovoSfondo` controlliamo che il colore non si ripeta.
 
 ## Screenshot
 
@@ -61,7 +61,7 @@ Vediamo che è stato creato un array che contiene cinque colori differenti, tram
 
 ## Demo
 
-[Link demo del progetto](https://sampei22.github.io/js_counter/)
+👉 [Link demo del progetto](https://sampei22.github.io/js_counter/)
 
 ## Installazione
 
@@ -70,13 +70,21 @@ git clone https://github.com/Sampei22/js_counter.git
 
 cd js_counter
 
-Apri index.html nel browser
+Apri index.html nel tuo browser
 
 ```
 
 ## Utilizzo
 
-Aprire la console di VSC e digitale la prima riga della sezione installazione per importare la repository. Entrarenella cartella js_counter e aprire il file index.html nel browser.
+Una volta aperto il file index.html nel browser, utilizza i pulsanti presenti nell’interfaccia per:
+
+- Incrementare o decrementare il valore del contatore  
+- Azzerare il contatore  
+- Salvare il valore corrente  
+- Rimuovere l’ultimo valore salvato  
+- Svuotare completamente la lista dei valori salvati  
+- Cambiare il colore di sfondo tramite l’apposito pulsante
+
 
 ## Struttura del progetto
 
@@ -97,9 +105,13 @@ Aprire la console di VSC e digitale la prima riga della sezione installazione pe
 
 - JavaScript
 
+- HTML5
+
+- CSS3
+
 ## Autori
 
-Enrico Sanchini
+**Enrico Sanchini** - [GitHub](https://github.com/Sampei22)
 
 ## Licenza
 
