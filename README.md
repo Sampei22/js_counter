@@ -61,7 +61,7 @@ Vediamo che è stato creato un array che contiene cinque colori differenti, tram
 
 ## Demo
 
-link pages attenzioneeeeeeeeeeeeeeeeeeee inserireeeeeeeeeeeeeeeeeeeeeeeeee
+[Link demo del progetto](https://sampei22.github.io/js_counter/)
 
 ## Installazione
 
@@ -103,8 +103,7 @@ Enrico Sanchini
 
 ## Licenza
 
-Distribuito sotto licenza Unlicense. Per maggiori informazioni, consultare il file [LICENZA.txt](https://github.com/Sampei22/js_counter.git).
+Distribuito sotto licenza Unlicense. Per maggiori informazioni, consultare il file [LICENZA.txt](https://github.com/Sampei22/js_counter/blob/main/LICENZA.txt).
 
-sistemareeeeeeeeeeeeeeeeeeeeeeeeee liiiiiiiiiiiiiiiiiiiiiiiink
 
 
