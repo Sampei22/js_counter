@@ -53,7 +53,7 @@ btnSfondo.addEventListener("click", ()=>{
 })
 ```
 
-Vediamo che è stato creato un array che contiene cinque colori differenti, generiamo un numero intero compreso tra 0 e 4 grazie a Math.floor(), che utilizzeremo come indice dell'array per assegnare un nuovo valore allo sfondo. Tramite il ciclo `do while` e le due variabili `sfondoPrecedente` e `nuovoSfondo` controlliamo che il colore non si ripeta.
+Vediamo che è stato creato un array che contiene cinque colori differenti, sucessivamente genera un numero intero compreso tra 0 e 4 grazie a Math.floor(), che utilizza come indice dell'array per assegnare un nuovo valore allo sfondo. Tramite il ciclo `do while` e le due variabili `sfondoPrecedente` e `nuovoSfondo` controllia che il colore non si ripeta.
 
 ## Screenshot
 
