@@ -57,7 +57,7 @@ Vediamo che è stato creato un array che contiene cinque colori differenti, tram
 
 ## Screenshot
 
-![Screen presentazione](/js_counter/img/screen_counter.png)
+![Screen presentazione](img/screen_counter.png)
 
 ## Demo
 
