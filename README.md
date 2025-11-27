@@ -37,9 +37,7 @@ Il contatore aumenta o diminuisce il valore visualizzato. Oltre ai due pulsanti 
 ## Esempio di codice
 
 ```JavaScript
-const coloriSfondo = ["linear-gradient(to top, white,green)","linear-gradient(to top, white,blue)",
-                      "linear-gradient(to top, white,red)","linear-gradient(to top, white,purple)",
-                      "linear-gradient(to top, white,orange)"]
+const coloriSfondo = ["linear-gradient(to top, white,green)","linear-gradient(to top, white,blue)","linear-gradient(to top, white,red)","linear-gradient(to top, white,purple)","linear-gradient(to top, white,orange)"]
 
 let sfondoPrecedente = 0
 
@@ -55,7 +53,7 @@ btnSfondo.addEventListener("click", ()=>{
 })
 ```
 
-Vediamo che è stato creato un array che contiene cinque colori differenti, sucessivamente genera un numero intero compreso tra 0 e 4 grazie a Math.floor(), che utilizza come indice dell'array per assegnare un nuovo valore allo sfondo. Tramite il ciclo `do while` e le due variabili `sfondoPrecedente` e `nuovoSfondo` controlla che il colore non si ripeta.
+Vediamo che è stato creato un array che contiene cinque colori differenti, sucessivamente genera un numero intero compreso tra 0 e 4 grazie a Math.floor(), che utilizza come indice dell'array per assegnare un nuovo valore allo sfondo. Tramite il ciclo `do while` e le due variabili `sfondoPrecedente` e `nuovoSfondo` controllia che il colore non si ripeta.
 
 ## Screenshot
 
@@ -98,7 +96,9 @@ Una volta aperto il file index.html nel browser, utilizza i pulsanti presenti ne
     *   `js/` : Contiene il file JavaScript.
         * `script.js`
 *   `index.html` : Contiene il file principale.
-*   `LICENZA.txt` : Documentazione sulla licenza del progetto.
+*   `LICENSE_en.txt` : Documentazione sulla licenza in lingua Inglese.
+*   `README_en.md` : File README in lingua Inglese.
+*   `LICENZA.txt` : Documentazione sulla licenza in Italiano.
 *   `README.md` : Questo file.
 
 
