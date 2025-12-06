@@ -1,9 +1,9 @@
 const pointerBody = document.querySelector("body")
 
-const btnBackground = document.createElement("button")
-btnBackground.textContent = "Cambia lo sfondo"
-btnBackground.classList.add("buttonStyle", "buttonBackground")
-pointerBody.appendChild(btnBackground)
+const btnBackgroundColor = document.createElement("button")
+btnBackgroundColor.textContent = "Cambia lo sfondo"
+btnBackgroundColor.classList.add("buttonStyle", "buttonBackground")
+pointerBody.appendChild(btnBackgroundColor)
 
 const backgroundColor = ["linear-gradient(to top, white,green)",
                         "linear-gradient(to top, white,blue)",
@@ -12,7 +12,7 @@ const backgroundColor = ["linear-gradient(to top, white,green)",
                         "linear-gradient(to top, white,orange)"]
 let currentBackground = 0
 
-btnBackground.addEventListener("click", ()=>{
+btnBackgroundColor.addEventListener("click", ()=>{
     let newBackground
 
     do{
@@ -69,9 +69,9 @@ divGrid.appendChild(btnSave)
 divGrid.appendChild(btnDeleteLast)
 divGrid.appendChild(btnEmptyArray)
 
-const listaSalvataggi = document.createElement("ul")
-listaSalvataggi.classList.add("span3")
-listaSalvataggi.textContent="I tuoi contatori salvati:"
+const listSave = document.createElement("ul")
+listSave.classList.add("span3")
+listSave.textContent="I tuoi contatori salvati:"
         
 btnMinus.addEventListener("click", ()=> {
     counter.textContent = Number(counter.textContent) - 1;
@@ -86,48 +86,48 @@ btnResetCounter.addEventListener("click", ()=>{
 })
 
 btnSave.addEventListener("click", ()=>{
-    numbSaves = salvaCont(counter.textContent, numbSaves, arraySave)      
+    numbSaves = saveCounter(counter.textContent, numbSaves, arraySave)      
 })
 
 btnDeleteLast.addEventListener("click", ()=>{
     if (numbSaves===0) return
     if (numbSaves==1){
-        divGrid.removeChild(listaSalvataggi)
+        divGrid.removeChild(listSave)
     }
     arraySave.pop()
-    listaSalvataggi.removeChild(listaSalvataggi.lastChild)
+    listSave.removeChild(listSave.lastChild)
     numbSaves--
 })
 
 btnEmptyArray.addEventListener("click", ()=>{
-    numbSaves = svuotaArray(arraySave)
+    numbSaves = emptyArray(arraySave)
 })
 
-function salvaCont (num, indice, array){
-    if(indice === 0){
-        divGrid.appendChild(listaSalvataggi)
+function saveCounter (num, index, array){
+    if(index === 0){
+        divGrid.appendChild(listSave)
     }
 
-    array[indice] = num;
-    indice++;
+    array[index] = num;
+    index++;
 
-    let nuovoContatore = document.createElement("li")
-    nuovoContatore.textContent = "Contatore " + indice + ": " + num
-    listaSalvataggi.appendChild(nuovoContatore)
+    let newCounter = document.createElement("li")
+    newCounter.textContent = "Contatore " + index + ": " + num
+    listSave.appendChild(newCounter)
 
-    return indice 
+    return index 
 }
 
 
-function svuotaArray(array) {
+function emptyArray(array) {
     while (array.length > 0) {
         array.pop();
-        if (listaSalvataggi.lastChild)
-            listaSalvataggi.removeChild(listaSalvataggi.lastChild)
+        if (listSave.lastChild)
+            listSave.removeChild(listSave.lastChild)
     }
 
-    if (divGrid.contains(listaSalvataggi))
-        divGrid.removeChild(listaSalvataggi)
+    if (divGrid.contains(listSave))
+        divGrid.removeChild(listSave)
 
     return 0
 }
